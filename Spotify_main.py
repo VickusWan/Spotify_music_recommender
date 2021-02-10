@@ -19,32 +19,15 @@ class Spotify_app():
             self.name = []
             self.pop = []
             self.rel_date = []
-            
-
-    def playlist(self, playlist_id):
-
-        pl=self.spotify.playlist_tracks(playlist_id=playlist_id)
-        
-        for i in range(len(pl['items'])):
-            self.artists.append([x['name'] for x in pl['items'][i]['track']['artists']])
-            if pl['items'][i]['track']['explicit'] == False:
-                self.explicit.append(0)
-            else:
-                self.explicit.append(1)
-            self.name.append(pl['items'][i]['track']['name'])
-            self.pop.append(pl['items'][i]['track']['popularity'])
-            self.rel_date.append(pl['items'][i]['track']['album']['release_date'])
-            self.ids.append(pl['items'][i]['track']['id'])
-            
-        year = [d[:4] for d in self.rel_date]
-        
-        audio_features = self.get_audio_features(self.ids)
-            
-        rest = pd.DataFrame(list(zip(self.explicit, self.artists, self.name, self.rel_date, year, self.pop)))
-        self.clean_lists()
-        return self.get_full_data(rest, audio_features)
-        
-    
+                   
+    def clean_lists(self):
+        self.ids.clear()
+        self.artists.clear()
+        self.explicit.clear()
+        self.name.clear()
+        self.pop.clear()
+        self.rel_date.clear()
+      
     def artist_toptracks(self, artist_id):
         
         artist = self.spotify.artist_top_tracks(artist_id)
@@ -112,14 +95,27 @@ class Spotify_app():
         return self.get_full_data(rest, audio_features)
         
     
-    def clean_lists(self):
-        self.ids.clear()
-        self.artists.clear()
-        self.explicit.clear()
-        self.name.clear()
-        self.pop.clear()
-        self.rel_date.clear()
+    def get_artist_id(self, artist_name):
+        dummy = []
+        search = self.spotify.search(q=artist_name, type='artist')
+        
+        for i in search['artists']['items']:
+            dummy.append([i['id'], i['name'], i['genres']])
+        
+        artist_id = pd.DataFrame(dummy)
+        artist_id.columns = ['id', 'Artist Name', 'Genres']
+        return artist_id
     
+    def get_track_id(self, track_name):
+        dummy = []
+        search = self.spotify.search(q=track_name, type='track')
+        for i in search['tracks']['items']:
+            dummy.append([i['name'], [j['name'] for j in i['artists']], i['id']])
+        
+        track_id = pd.DataFrame(dummy)
+        track_id.columns = ['Song name', 'Artists', 'id']
+        return track_id
+          
     def get_audio_features(self, ids):
         
         val = []
@@ -142,3 +138,39 @@ class Spotify_app():
         cols = ['acousticness', 'artists', 'danceability', 'duration_ms', 'energy', 'explicit', 'id', 'instrumentalness', 'key', 'liveness', 'loudness', 'mode', 'name', 'popularity', 'release_date', 'speechiness', 'tempo', 'valence', 'year']
         data = data[cols]
         return data
+    
+    def playlist(self, playlist_id):
+
+        pl=self.spotify.playlist_tracks(playlist_id=playlist_id)
+        
+        for i in pl['items']:
+            self.artists.append([x['name'] for x in i['track']['artists']])
+            if i['track']['explicit'] == False:
+                self.explicit.append(0)
+            else:
+                self.explicit.append(1)
+            self.name.append(i['track']['name'])
+            self.pop.append(i['track']['popularity'])
+            self.rel_date.append(i['track']['album']['release_date'])
+            self.ids.append(i['track']['id'])
+            
+        year = [d[:4] for d in self.rel_date]
+        
+        audio_features = self.get_audio_features(self.ids)
+            
+        rest = pd.DataFrame(list(zip(self.explicit, self.artists, self.name, self.rel_date, year, self.pop)))
+        self.clean_lists()
+        return self.get_full_data(rest, audio_features)
+    
+    def related_artists(self, artist_name):
+        related_artists = []
+        artist_id = self.get_artist_id(artist_name).iloc[0,0]
+        search = self.spotify.artist_related_artists(artist_id)
+        for i in search['artists']:
+            related_artists.append([i['name'], i['id']])
+        
+        return pd.DataFrame(related_artists)
+        
+        
+        
+        
