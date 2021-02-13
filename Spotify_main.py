@@ -27,7 +27,35 @@ class Spotify_app():
         self.name.clear()
         self.pop.clear()
         self.rel_date.clear()
+        
+    def remove_char(self, word):
+        word=word.replace('[','').replace(']','').replace("'",'').replace(',','').lower()
+        return word
+    
+    def select_artist(self, song, artist):
+        song = song.lower()
+        artist = artist.lower()
+        search = self.get_track_id(song)
+        
+        selection_id = "does not exist"
+        
+        for i in range(search.shape[0]):
+            name = self.remove_char(str(search['Artists'][i]))
+            if artist in name:
+                selection_id = search.iloc[i,2]
+                break
+        
+        return selection_id
       
+        
+    def track_input_model(self, ids):
+        track_detail = self.track(ids)
+        print(track_detail.columns)
+        track_detail['year']=track_detail['year'].astype(float)
+        track_detail.drop(['artists', 'id', 'name', 'release_date'], axis=1, inplace=True)
+        return track_detail
+        
+        
     def artist_toptracks(self, artist_id):
         
         artist = self.spotify.artist_top_tracks(artist_id)
