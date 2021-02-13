@@ -1,0 +1,380 @@
+	<!DOCTYPE html>
+	<html lang="en" class="no-js">
+	<head>
+		<!-- Mobile Specific Meta -->
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<!-- Favicon-->
+		<link rel="shortcut icon" href="img/fav.png">
+		<meta name="author" content="Victor Uong">
+		<meta name="keywords" content="portfolio">
+		<meta charset="UTF-8">
+
+		<title>Victor Uong</title>
+
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/style.css')}}">
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/bootstrap.min.css')}}">
+			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+			<link rel = "stylesheet" href = "https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+			<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
+			<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+			<script src = "https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+			<style>
+			body, html {
+			  font-family: "Inconsolata", sans-serif;
+			}
+
+			.mydeets{
+				background-color: #f7f5f0;
+			}
+
+			.profileface {
+				border-radius: 50%;
+			}
+
+			.topname {
+				padding-left:50px;
+			  padding-right: 110px;
+				font-size: 2rem;
+			}
+			.navlist, .dropdown {
+				padding-left:110px;
+			  padding-right: 110px;
+				font-size: 1.2rem;
+			}
+
+			.profile {
+				display: block;
+  			margin-left: auto;
+  			margin-right: auto;
+			}
+
+			</style>
+		</head>
+
+		<body>
+
+			<header>
+	      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark qwer">
+	        <a class="navbar-brand topname" href="#">Victor Uong</a>
+	        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+	          <span class="navbar-toggler-icon"></span>
+	        </button>
+	        <div class="collapse navbar-collapse" id="navbarCollapse">
+	          <ul class="navbar-nav mr-auto">
+	            <li class="nav-item active navlist">
+	              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+	            </li>
+	            <li class="nav-item navlist">
+	              <a class="nav-link" href="#">About</a>
+	            </li>
+	            <li class="nav-item navlist">
+	              <a class="nav-link" href="#">Interests</a>
+	            </li>
+							<div class="dropdown">
+						  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						    DS Projects
+						  </button>
+						  <div class="dropdown-menu qqq" aria-labelledby="dropdownMenuButton">
+						    <a class="dropdown-item" href="#">League of Legends</a>
+						    <a class="dropdown-item" href="{{ url_for('recsong')}}">Spotify</a>
+						    <a class="dropdown-item" href="#">Next Project</a>
+						  </div>
+						</div>
+						<li class="nav-item navlist">
+							<a class="nav-link" href="#">Resume</a>
+						</li>
+	          </ul>
+	        </div>
+	      </nav>
+	    </header>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+			<!-- start banner Area -->
+			<section class="banner-area">
+				<div class="container">
+					<div class="row fullscreen align-items-center justify-content-between">
+						<div class="col-lg-6 col-md-6 col-xs-6 banner-left">
+							<h2 class="mt-10 mb-20">Victor Uong</h2>
+							<br>
+							<p>
+								Data Analyst. Data Science. Machine Learning
+							</p>
+							<p>(Not a web designer)</p>
+						</div>
+						<div class="col-lg-6 col-md-6 col-xs-6 banner-right align-self-center">
+							<img class="profileface" src="{{url_for('static', filename='victor.jpg')}}" style="width:auto;height:auto;max-width:100%;">
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- End banner Area -->
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<!-- Start home-about Area -->
+			<section class="home-about-area section-gap mydeets">
+				<hr>
+				<br>
+				<br>
+				<div class="container">
+					<div class="title text-center">
+							<h1 class="text-uppercase">Personal Details</h1>
+							<br>
+							<br>
+							<blockquote class="generic-blockquote">
+								<p class="fz-16">
+									 A few interesting things about me. I love to read science fiction (my favorite is Frank Herbert's Dune). I am also an avid gamer. I love to play competitive strategy games and first-person shooters. Lastly, I love learning. Every day I push myself to learn something new, whether that be about machine learning, software engineering, or miscellaneous facts about the universe.
+								</p>
+								<p class="fz-16">
+									 I recently started working as a data process manager at Capital One. My work mainly revolves around finding ways to automate business reports that have been entirely manual in the past. I have cut down the number of Graduate classes I am taking to accomadate a fulltime work schedule, but I plan to graduate from the University of Texas at Dallas in May with a Masters in Computer Science.
+								</p>
+							</blockquote>
+						<br>
+						<br>
+						<hr>
+					</div>
+				</div>
+			</section>
+			<br>
+<br>
+
+			<!-- Start services Area -->
+			<section class="services-area section-gap">
+				<div class="container">
+		            <div class="row d-flex justify-content-center">
+		                <div class="menu-content  col-lg-7">
+		                    <div class="title text-center">
+		                        <h1 class="mb-10">Areas of Interest</h1>
+		                        <p> Take a look at some of the things I love working on.</p>
+														<br>
+														<br>
+
+		                    </div>
+		                </div>
+		            </div>
+					<div class="row">
+						<div class="col-lg-4 col-md-6">
+							<div class="single-services">
+								<img class="profile" src="{{url_for('static', filename='database.png')}}">
+								<br>
+								<span class="lnr lnr-cloud-check"></span>
+								<a><h4>Data Scraping</h4></a>
+								<p>Although Kaggle has great datasets, I prefer to extract and collect my own datasets using available APIs.</p>
+							</div>
+						</div>
+
+						<div class="col-lg-4 col-md-6">
+							<div class="single-services">
+								<img class="profile" src="{{url_for('static', filename='chart.png')}}">
+								<br>
+								<span class="lnr lnr-bubble"></span>
+								<a><h4>Data Visualization</h4></a>
+								<p>
+									Describing data with only images is both an art and skill. I love breaking datasets into its most functional representation.
+								</p>
+							</div>
+						</div>
+
+						<div class="col-lg-4 col-md-6">
+							<div class="single-services">
+								<img class="profile" src="{{url_for('static', filename='analytics.png')}}">
+								<br>
+								<span class="lnr lnr-graduation-hat"></span>
+								<a><h4>Data Analytics</h4></a>
+								<p>
+									I love telling stories. I also love telling stories that are based on facts.
+								</p>
+							</div>
+						</div>
+					</div>
+					<br>
+					<br>
+					<div class="row">
+
+						<div class="col-lg-4 col-md-6">
+							<div class="single-services">
+								<img class="profile" src="{{url_for('static', filename='ml.png')}}">
+								<br>
+								<span class="lnr lnr-layers"></span>
+								<a><h4>Machine Learning</h4></a>
+								<p>
+									Anyone can use scikit-learn to train a Machine Learning Model. However, I love the math and underlying statistics theory behind the implementation.
+								</p>
+							</div>
+						</div>
+
+						<div class="col-lg-4 col-md-6">
+							<div class="single-services">
+								<img class="profile" src="{{url_for('static', filename='deploy.png')}}">
+								<br>
+								<span class="lnr lnr-laptop-phone"></span>
+								<a><h4>Model Deployment</h4></a>
+								<p>
+									Despite not being a a web developer, I enjoy deploying my Machine Learning models in real world production systems using REST APIs.
+								</p>
+							</div>
+						</div>
+
+						<div class="col-lg-4 col-md-6">
+							<div class="single-services">
+								<img class="profile" src="{{url_for('static', filename='real.png')}}">
+								<br>
+								<span class="lnr lnr-chart-bars"></span>
+								<a><h4>Real-World Application</h4></a>
+								<p>
+									Titanic, Iris and house loans are great introductory datasets for beginners, but they have no actual application. Every project that I create, has real-life uses.
+								</p>
+							</div>
+						</div>
+
+					</div>
+
+
+				</div>
+			</section>
+		<br>
+		<br>
+	<hr>
+	<br>
+<br>
+			<!-- End services Area -->
+
+<!-- Start recent-blog Area -->
+<section class="recent-blog-area section-gap">
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-md-8 pb-30 header-text title text-center">
+				<h1>My Latest Projects</h1>
+				<p>
+					Recent projects or blog posts.
+				</p>
+			</div>
+		</div>
+		<br>
+		<br>
+		<div class="row">
+
+			<div class="single-recent-blog col-lg-4 col-md-4">
+				<div class="thumb">
+					<a href="https://towardsdatascience.com/automating-aws-server-shut-down-for-deep-learning-5d5de1301c70" target="_blank">
+					<img class="f-img" src="{{url_for('static', filename='download.png')}}" alt="" height=242>
+				</a>
+				</div>
+				<div class="bottom d-flex justify-content-between align-items-center flex-wrap">
+
+					<div class="meta">
+						Jan 20, 2020
+					</div>
+				</div>
+				<a href="https://towardsdatascience.com/automating-aws-server-shut-down-for-deep-learning-5d5de1301c70" target="_blank">
+					<h4>Automating AWS EC2 Shutdown with Bash Scripts </h4>
+				</a>
+				<p>
+					A helpful tutorial I wrote recently on how to set up a Bash script that utilized the AWS CLI to start, log into, then shutdown an EC2 instance. (I didn't want to forget the instance was running and lose money)
+				</p>
+			</div>
+
+			<div class="single-recent-blog col-lg-4 col-md-4">
+				<div class="thumb">
+					<a href="https://github.com/harrisonjansma/2019_Notes/tree/master/ML/NLP/PyTorch%20RNN%20Implementations" target="_blank">
+					<img class="f-img" src="{{url_for('static', filename='download.png')}}" alt="" height=242>
+				</a>
+				</div>
+				<div class="bottom d-flex justify-content-between align-items-center flex-wrap">
+					<div class="meta">
+						Dec 10, 2019
+					</div>
+				</div>
+				<a href="https://github.com/harrisonjansma/2019_Notes/tree/master/ML/NLP/PyTorch%20RNN%20Implementations" target="_blank">
+					<h4>RNNs, LSTMs, and Attention Mechanisms for Language Modelling (PyTorch)</h4>
+				</a>
+				<p>
+				  Tested the use of Word2Vec embeddings with a variety of sequential input deep learning models towards the task of language modeling (predicting the next word in a sentence).
+				</p>
+			</div>
+
+			<div class="single-recent-blog col-lg-4 col-md-4">
+				<div class="thumb">
+					<a href="https://github.com/harrisonjansma/DavisBase" target="_blank">
+					<img class="f-img" src="https://images.all-free-download.com/images/graphiclarge/vintage_database_icons_vector_536187.jpg" alt="" height=242>
+				</a>
+				</div>
+				<div class="bottom d-flex justify-content-between align-items-center flex-wrap">
+
+					<div class="meta">
+						Dec 2, 2019
+					</div>
+				</div>
+				<a href="https://github.com/harrisonjansma/DavisBase" target="_blank">
+					<h4>DavisBase: A Custom Designed Database (Python)</h4>
+				</a>
+				<p>
+					  A fully functional, SQL-compliant database implemented from scratch in Python. DavisBase compresses data to a custom-designed bit-level encoding for maximal data compression. By utilizing a file size of 512Kb, DavisBase performs well in low memory environments while also maximizing query time.
+				</p>
+			</div>
+		</div>
+	</div>
+</section>
+<br>
+<br>
+<br>
+			<!-- Site footer -->
+			<!-- Site footer -->
+
+
+		    <footer class="site-footer">
+		      <div class="container">
+		        <div class="row">
+		          <div class="col-sm-12 col-md-6">
+		            <h6>About This Website</h6>
+		            <p class="text-justify">This website was coded in HTML, CSS and uses the python Flask framework to handle requests (especially in the projects section).</p>
+		          </div>
+
+		          <div class="col-xs-6 col-md-3">
+
+		          </div>
+
+		          <div class="col-xs-6 col-md-3">
+		            <h6>Quick Links</h6>
+		            <ul class="footer-links">
+		              <li><a href="https://github.com/VickusWan">Github</a></li>
+		              <li><a href="https://www.linkedin.com/in/victoruong/">Linkedin</a></li>
+		              <li><a href="https://www.facebook.com/victor.uong.92">Facebook</a></li>
+		              <li><a href="https://www.instagram.com/victoruong/?hl=en">Instagram</a></li>
+		            </ul>
+		          </div>
+		        </div>
+		        <hr>
+		      </div>
+		      <div class="container">
+		        <div class="row">
+		          <div class="col-md-8 col-sm-6 col-xs-12">
+
+		          </div>
+
+		          <div class="col-md-4 col-sm-6 col-xs-12">
+		            <ul class="social-icons">
+		              <li><a class="facebook" href="#"><i class="fa fa-github"></i></a></li>
+		              <li><a class="twitter" href="#"><i class="fa fa-linkedin"></i></a></li>
+		              <li><a class="github" href="#"><i class="fa fa-facebook"></i></a></li>
+		              <li><a class="linkedin" href="#"><i class="fa fa-instagram"></i></a></li>
+		            </ul>
+		          </div>
+		        </div>
+		      </div>
+		</footer>
+			<!-- End footer Area -->
+
+		</body>
+	</html>
